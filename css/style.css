@@ -9,6 +9,11 @@ Author : Ngetemplates
 /* ------------------------------
   General
 ---------------------------------*/
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
 body {
   margin: 0;
   padding: 0;

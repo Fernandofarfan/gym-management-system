@@ -1,169 +1,532 @@
 <!DOCTYPE html>
 <html lang="zxx">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" href="img/favicon.png">
-		<title>Ales</title>
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" href="css/line-awesome.min.css">
-		<link rel="stylesheet" href="css/magnific-popup.css">
-		<link rel="stylesheet" href="css/swiper.min.css">
-		<link rel="stylesheet" href="css/style.css">
-	</head>
-	<body>
-		
-		<!-- loader -->
-		<div class="loader">
-	      	<div class="loading">
-		        <div class="spinner-grow aloader" role="status">
-		      		<span class="sr-only"></span>
-		    	</div>
-		    </div>
-	    </div>
-		<!-- end loader -->
 
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="img/favicon.png">
+	<title>Titanium Gym</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/line-awesome.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<link rel="stylesheet" href="css/style.css">
 
-		<!-- navbar -->
-		<div id="navbar" class="navbar navbar-expand-lg justify-content-center align-items-center">
-			<div class="container">
-				 <a href="#" class="navbar-brand"><img src="img/logo.png" alt=""></a>
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			        <i class="la la-bars"></i>
-			    </button>
+	<!-- SEO Meta Tags -->
+	<meta name="description"
+		content="Titanium Gym - El mejor centro de fitness y entrenamiento. Únete hoy para transformar tu cuerpo y mente.">
+	<meta name="keywords" content="gimnasio, fitness, entrenamiento, pesas, cardio, titanium gym">
+	<meta name="author" content="Fernando">
 
-			    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			    	<ul class="navbar-nav nav">
-						<li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-						<li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-						<li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-						<li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-						<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-					</ul>
-			    </div>
-			   
-			    <ul class="button-navbar">
-			    	<li><button class="button">Join Now</button></li>
-			    </ul>
+	<!-- Custom Styles for Schedule and Modal -->
+	<style>
+		.schedule-table {
+			width: 100%;
+			border-collapse: collapse;
+			margin-top: 30px;
+		}
+
+		.schedule-table th,
+		.schedule-table td {
+			border: 1px solid #ddd;
+			padding: 10px;
+			text-align: center;
+			color: #fff;
+			/* Assuming dark theme based on context, will adjust if needed */
+		}
+
+		.schedule-table th {
+			background-color: #f0542c;
+			/* Matching likely primary color */
+		}
+
+		.schedule-table tr:nth-child(even) {
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+
+		/* Improve Modal Visibility if needed */
+		.modal-content {
+			background-color: #1a1a1a;
+			color: #fff;
+		}
+
+		.form-control {
+			background-color: #333;
+			border: 1px solid #555;
+			color: #fff;
+		}
+
+		.form-control:focus {
+			background-color: #444;
+			color: #fff;
+			border-color: #f0542c;
+			box-shadow: none;
+		}
+
+		/* Schedule Tabs */
+		.nav-pills .nav-link {
+			background-color: transparent;
+			color: #fff;
+			border: 1px solid #333;
+			margin-bottom: 10px;
+			transition: all 0.3s ease;
+		}
+
+		.nav-pills .nav-link.active,
+		.nav-pills .nav-link:hover {
+			background-color: #edcc36;
+			color: #000;
+			border-color: #edcc36;
+			font-weight: 600;
+		}
+
+		.schedule-card {
+			transition: transform 0.3s ease;
+		}
+
+		.schedule-card:hover {
+			transform: translateY(-5px);
+			border-color: #edcc36 !important;
+		}
+	</style>
+
+<body>
+
+	<!-- loader -->
+	<div class="loader">
+		<div class="loading">
+			<div class="spinner-grow aloader" role="status">
+				<span class="sr-only"></span>
 			</div>
 		</div>
-		<!-- end navbar -->
+	</div>
+	<!-- end loader -->
 
 
-		<!-- intro -->
-		<div id="home" class="intro">
-			<div class="container">
-				<div class="content">
-					<div class="row align-items-center">
-						<div class="col-md">
-							<div class="content-text">
-								<span>Fitness and gym center</span>
-								<h1>Make your body healthy and muscular</h1>
-								<div class="entry">
-									<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique quae unde vitae hic impedit voluptate labore quam aliquam.</p>
-									<button class="button">Get Started</button>
-								</div>
-								</ul>
+	<!-- navbar -->
+	<div id="navbar" class="navbar navbar-expand-lg justify-content-center align-items-center">
+		<div class="container">
+			<a href="#" class="navbar-brand"><img src="img/logo.png" alt=""></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<i class="la la-bars"></i>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav nav">
+					<li class="nav-item"><a class="nav-link" href="#home">Inicio</a></li>
+					<li class="nav-item"><a class="nav-link" href="#about">Nosotros</a></li>
+					<li class="nav-item"><a class="nav-link" href="#trainers">Entrenadores</a></li>
+					<li class="nav-item"><a class="nav-link" href="#gallery">Galería</a></li>
+					<li class="nav-item"><a class="nav-link" href="#pricing">Planes</a></li>
+					<li class="nav-item"><a class="nav-link" href="#bmi">Calculadora</a></li>
+					<li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+				</ul>
+			</div>
+
+			<ul class="button-navbar">
+				<li><button class="button" data-bs-toggle="modal" data-bs-target="#joinModal">Únete Ahora</button></li>
+			</ul>
+		</div>
+	</div>
+	<!-- end navbar -->
+
+
+	<!-- intro -->
+	<div id="home" class="intro-video-container">
+		<video autoplay muted loop playsinline class="back-video">
+			<source src="https://videos.pexels.com/video-files/5319759/5319759-hd_1920_1080_25fps.mp4" type="video/mp4">
+			<!-- Fallback for browsers that don't support video -->
+			Tu navegador no soporta videos HTML5.
+		</video>
+		<div class="overlay"></div>
+		<div class="container h-100">
+			<div class="content h-100 d-flex align-items-center">
+				<div class="content-text text-center w-100">
+					<span class="fade-in text-warning fw-bold">FITNESS Y CENTRO DEPORTIVO</span>
+					<h1 class="fade-in text-white display-3 fw-bold mt-2">CONSTRUYE TU CUERPO<br>SANO Y FUERTE</h1>
+					<div class="entry fade-in mt-4">
+						<p class="text-white mx-auto" style="max-width: 700px; font-size: 1.2rem;">Tu transformación
+							comienza aquí. Entrenadores expertos, equipamiento de primera y el ambiente que necesitas
+							para superar tus límites.</p>
+						<button class="button mt-4" data-bs-toggle="modal" data-bs-target="#joinModal">Comenzar
+							Ahora</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end intro -->
+
+	<!-- about -->
+	<div id="about" class="about">
+		<div class="container">
+			<h2>Estamos aquí para mejorar tu salud y potenciar tu rendimiento físico</h2>
+			<div class="row g-5">
+				<div class="col-md-7">
+					<div class="content-left">
+						<img src="img/about.png" alt="">
+					</div>
+				</div>
+				<div class="col-md">
+					<div class="content-right">
+						<img src="img/about2.png" alt="">
+						<p>En Titanium Gym, nos dedicamos a ayudarte a alcanzar tus metas fitness. Contamos con
+							instalaciones modernas y programas personalizados diseñados para todos los niveles, desde
+							principiantes hasta atletas de alto rendimiento.</p>
+						<button class="button">Contáctanos</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end about -->
+
+	<!-- trainers -->
+	<div id="trainers" class="section-padding" style="padding: 80px 0; background-color: #0c0c0c;">
+		<div class="container">
+			<div class="text-center mb-5 fade-in">
+				<h2>Conoce a tus <br> Entrenadores</h2>
+				<p>Expertos certificados listos para guiarte</p>
+			</div>
+			<div class="row g-5">
+				<div class="col-md-4 fade-in">
+					<div class="card bg-dark text-white border-0">
+						<img src="img/gallery1.png" class="card-img-top" alt="Carlos"
+							style="height: 300px; object-fit: cover;"> <!-- Using existing images for demo -->
+						<div class="card-body text-center">
+							<h5 class="card-title text-warning">Carlos Mendoza</h5>
+							<p class="card-text">Especialista en CrossFit</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 fade-in">
+					<div class="card bg-dark text-white border-0">
+						<img src="img/gallery3.png" class="card-img-top" alt="Ana"
+							style="height: 300px; object-fit: cover;">
+						<div class="card-body text-center">
+							<h5 class="card-title text-warning">Ana Silva</h5>
+							<p class="card-text">Instructora de Yoga</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 fade-in">
+					<div class="card bg-dark text-white border-0">
+						<img src="img/gallery6.png" class="card-img-top" alt="Roberto"
+							style="height: 300px; object-fit: cover;">
+						<div class="card-body text-center">
+							<h5 class="card-title text-warning">Roberto Gomez</h5>
+							<p class="card-text">Entrenador de Boxeo</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end trainers -->
+
+	<!-- gallery -->
+	<div id="gallery" class="gallery">
+		<div class="container">
+			<h2>Mira nuestra <br> galería</h2>
+			<div class="divider"></div>
+			<div class="row g-5">
+				<div class="col-md-4">
+					<a href="img/gallery1.png" class="popup-image"><img src="img/gallery1.png"></a>
+				</div>
+				<div class="col-md-4">
+					<a href="img/gallery2.png" class="popup-image"><img src="img/gallery2.png"></a>
+				</div>
+				<div class="col-md-4">
+					<a href="img/gallery3.png" class="popup-image"><img src="img/gallery3.png"></a>
+				</div>
+				<div class="col-md-4">
+					<a href="img/gallery4.png" class="popup-image"><img src="img/gallery4.png"></a>
+				</div>
+				<div class="col-md-4">
+					<a href="img/gallery6.png" class="popup-image"><img src="img/gallery6.png"></a>
+				</div>
+				<div class="col-md-4">
+					<a href="img/gallery5.png" class="popup-image"><img src="img/gallery5.png"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end gallery -->
+
+	<!-- Schedule Section -->
+	<div id="schedule" class="section-padding" style="padding: 80px 0; background-color: #111;">
+		<div class="container">
+			<div class="text-center mb-5 fade-in">
+				<h2>Horario de <span class="text-warning">Clases</span></h2>
+				<p>Encuentra tu momento. Haz clic en el día para ver la agenda.</p>
+			</div>
+
+			<!-- Days Naviagtion -->
+			<ul class="nav nav-pills justify-content-center mb-5 fade-in" id="pills-tab" role="tablist">
+				<li class="nav-item mx-1" role="presentation">
+					<button class="nav-link active rounded-pill px-4" id="pills-mon-tab" data-bs-toggle="pill"
+						data-bs-target="#pills-mon" type="button" role="tab" aria-selected="true">Lunes</button>
+				</li>
+				<li class="nav-item mx-1" role="presentation">
+					<button class="nav-link rounded-pill px-4" id="pills-tue-tab" data-bs-toggle="pill"
+						data-bs-target="#pills-tue" type="button" role="tab" aria-selected="false">Martes</button>
+				</li>
+				<li class="nav-item mx-1" role="presentation">
+					<button class="nav-link rounded-pill px-4" id="pills-wed-tab" data-bs-toggle="pill"
+						data-bs-target="#pills-wed" type="button" role="tab" aria-selected="false">Miércoles</button>
+				</li>
+				<li class="nav-item mx-1" role="presentation">
+					<button class="nav-link rounded-pill px-4" id="pills-thu-tab" data-bs-toggle="pill"
+						data-bs-target="#pills-thu" type="button" role="tab" aria-selected="false">Jueves</button>
+				</li>
+				<li class="nav-item mx-1" role="presentation">
+					<button class="nav-link rounded-pill px-4" id="pills-fri-tab" data-bs-toggle="pill"
+						data-bs-target="#pills-fri" type="button" role="tab" aria-selected="false">Viernes</button>
+				</li>
+				<li class="nav-item mx-1" role="presentation">
+					<button class="nav-link rounded-pill px-4" id="pills-sat-tab" data-bs-toggle="pill"
+						data-bs-target="#pills-sat" type="button" role="tab" aria-selected="false">Sábado</button>
+				</li>
+			</ul>
+
+			<!-- Schedule Content -->
+			<div class="tab-content fade-in" id="pills-tabContent">
+
+				<!-- Monday -->
+				<div class="tab-pane fade show active" id="pills-mon" role="tabpanel">
+					<div class="row g-4 justify-content-center">
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">08:00 AM</h4>
+								<h5>Yoga Flow</h5>
+								<p class="small text-muted mb-0">Ana Silva</p>
 							</div>
 						</div>
-						<div class="col-md">
-							<div class="content-image">
-								<img src="img/intro.png" alt="">
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">10:00 AM</h4>
+								<h5>Musculación</h5>
+								<p class="small text-muted mb-0">Sala de Pesas</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">05:00 PM</h4>
+								<h5>CrossFit</h5>
+								<p class="small text-muted mb-0">Carlos Mendoza</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">07:00 PM</h4>
+								<h5>Boxeo</h5>
+								<p class="small text-muted mb-0">Roberto Gomez</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Tuesday -->
+				<div class="tab-pane fade" id="pills-tue" role="tabpanel">
+					<div class="row g-4 justify-content-center">
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">08:00 AM</h4>
+								<h5>CrossFit</h5>
+								<p class="small text-muted mb-0">Carlos Mendoza</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">10:00 AM</h4>
+								<h5>Zumba</h5>
+								<p class="small text-muted mb-0">Laura</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">05:00 PM</h4>
+								<h5>Pilates</h5>
+								<p class="small text-muted mb-0">Ana Silva</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">07:00 PM</h4>
+								<h5>HIIT</h5>
+								<p class="small text-muted mb-0">Roberto</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Wednesday -->
+				<div class="tab-pane fade" id="pills-wed" role="tabpanel">
+					<div class="row g-4 justify-content-center">
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">08:00 AM</h4>
+								<h5>Yoga Flow</h5>
+								<p class="small text-muted mb-0">Ana Silva</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">10:00 AM</h4>
+								<h5>Musculación</h5>
+								<p class="small text-muted mb-0">Sala de Pesas</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">05:00 PM</h4>
+								<h5>CrossFit</h5>
+								<p class="small text-muted mb-0">Carlos Mendoza</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">07:00 PM</h4>
+								<h5>Boxeo</h5>
+								<p class="small text-muted mb-0">Roberto Gomez</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Thursday -->
+				<div class="tab-pane fade" id="pills-thu" role="tabpanel">
+					<div class="row g-4 justify-content-center">
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">08:00 AM</h4>
+								<h5>CrossFit</h5>
+								<p class="small text-muted mb-0">Carlos Mendoza</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">10:00 AM</h4>
+								<h5>Zumba</h5>
+								<p class="small text-muted mb-0">Laura</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">05:00 PM</h4>
+								<h5>Pilates</h5>
+								<p class="small text-muted mb-0">Ana Silva</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">07:00 PM</h4>
+								<h5>HIIT</h5>
+								<p class="small text-muted mb-0">Roberto</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Friday -->
+				<div class="tab-pane fade" id="pills-fri" role="tabpanel">
+					<div class="row g-4 justify-content-center">
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">08:00 AM</h4>
+								<h5>Yoga Flow</h5>
+								<p class="small text-muted mb-0">Ana Silva</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">10:00 AM</h4>
+								<h5>Musculación</h5>
+								<p class="small text-muted mb-0">Sala de Pesas</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">05:00 PM</h4>
+								<h5>CrossFit</h5>
+								<p class="small text-muted mb-0">Carlos Mendoza</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">07:00 PM</h4>
+								<h5>Boxeo</h5>
+								<p class="small text-muted mb-0">Roberto Gomez</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Saturday -->
+				<div class="tab-pane fade" id="pills-sat" role="tabpanel">
+					<div class="row g-4 justify-content-center">
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">09:00 AM</h4>
+								<h5>Cardio Mix</h5>
+								<p class="small text-muted mb-0">Laura</p>
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="card bg-dark text-white text-center border-secondary p-3">
+								<h4 class="text-warning">11:00 AM</h4>
+								<h5>Open Gym</h5>
+								<p class="small text-muted mb-0">Entrenador de Guardia</p>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- end intro -->
+	</div>
+	<!-- End Schedule Section -->
 
-		<!-- about -->
-		<div id="about" class="about">
-			<div class="container">
-				<h2>We are here to improve health and want to practice fitness properly and correctly</h2>
-				<div class="row g-5">
-					<div class="col-md-7">
-						<div class="content-left">
-							<img src="img/about.png" alt="">
-						</div>
-					</div>
-					<div class="col-md">
-						<div class="content-right">
-							<img src="img/about2.png" alt="">
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing, elit. Harum doloremque eveniet ipsam praesentium deleniti quas debitis alias, reiciendis nobis est qui laudantium ut sunt suscipit maiores perspiciatis libero. Itaque, earum?</p>
-							<button class="button">Contact us</button>
-						</div>
+	<!-- pricing -->
+	<div id="pricing" class="pricing">
+		<div class="container">
+			<div class="row g-5">
+				<div class="col-md col-md-left">
+					<div class="content-left">
+						<h2>Elige tu <br>Plan</h2>
+						<p>Planes flexibles que se adaptan a tus necesidades y horario. Empieza hoy mismo.</p>
 					</div>
 				</div>
-			</div>
-		</div>
-		<!-- end about -->
-
-		<!-- gallery -->
-		<div id="gallery" class="gallery">
-			<div class="container">
-				<h2>See our <br> gallery gym</h2>
-				<div class="divider"></div>
-				<div class="row g-5">
-					<div class="col-md-4">
-						<a href="img/gallery1.png" class="popup-image"><img src="img/gallery1.png"></a>
-					</div>
-					<div class="col-md-4">
-						<a href="img/gallery2.png" class="popup-image"><img src="img/gallery2.png"></a>
-					</div>
-					<div class="col-md-4">
-						<a href="img/gallery3.png" class="popup-image"><img src="img/gallery3.png"></a>
-					</div>
-					<div class="col-md-4">
-						<a href="img/gallery4.png" class="popup-image"><img src="img/gallery4.png"></a>
-					</div>
-					<div class="col-md-4">
-						<a href="img/gallery6.png" class="popup-image"><img src="img/gallery6.png"></a>
-					</div>
-					<div class="col-md-4">
-						<a href="img/gallery5.png" class="popup-image"><img src="img/gallery5.png"></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- end gallery -->
-
-		<!-- pricing -->
-		<div id="pricing" class="pricing">
-			<div class="container">
-				<div class="row g-5">
-					<div class="col-md col-md-left">
-						<div class="content-left">
-							<h2>Choose Our <br>Plans</h2>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, distinctio minima voluptatum</p>
-						</div>
-					</div>
-					<div class="col-md">
+				<div class="col-md">
+					<div class="content">
 						<div class="content">
-							<h4>Monthly</h4>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+							<h4>Mensual</h4>
+							<p>Acceso total a todas las áreas</p>
 							<ul>
-								<li><i class="la la-check-circle"></i> Instructor</li>
-								<li><i class="la la-check-circle"></i> Free Drink</li>
-								<li><i class="la la-check-circle"></i> Get Supplement</li>
-								<li><i class="la la-check-circle"></i> Free Support</li>
+								<li><i class="la la-check-circle"></i> Instructor de planta</li>
+								<li><i class="la la-check-circle"></i> Hidratación incluida</li>
+								<li><i class="la la-check-circle"></i> Descuento en Suplementos</li>
+								<li><i class="la la-check-circle"></i> Soporte en línea</li>
 							</ul>
 							<h2>$35</h2>
-							<button class="button">Choose Now</button>
+							<button class="button" onclick="selectPlan('Mensual')" data-bs-toggle="modal"
+								data-bs-target="#joinModal">Elegir Ahora</button>
 						</div>
 					</div>
 					<div class="col-md">
 						<div class="content">
-							<h4>Annual</h4>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+							<h4>Anual</h4>
+							<p>El mejor valor para tu compromiso</p>
 							<ul>
-								<li><i class="la la-check-circle"></i> Instructor</li>
-								<li><i class="la la-check-circle"></i> Free Drink</li>
-								<li><i class="la la-check-circle"></i> Get Supplement</li>
-								<li><i class="la la-check-circle"></i> Free Support</li>
+								<li><i class="la la-check-circle"></i> Instructor Personalizado (1 mes)</li>
+								<li><i class="la la-check-circle"></i> Hidratación incluida</li>
+								<li><i class="la la-check-circle"></i> Pack de Suplementos</li>
+								<li><i class="la la-check-circle"></i> Soporte 24/7</li>
 							</ul>
 							<h2>$350</h2>
-							<button class="button">Choose Now</button>
+							<button class="button" onclick="selectPlan('Anual')" data-bs-toggle="modal"
+								data-bs-target="#joinModal">Elegir Ahora</button>
 						</div>
 					</div>
 				</div>
@@ -171,17 +534,95 @@
 		</div>
 		<!-- end pricing -->
 
+		<div id="bmi" class="section-padding"
+			style="padding: 100px 0; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('img/gym_bg.png'); background-attachment: fixed; background-size: cover; background-position: center;">
+			<div class="container">
+				<div class="row justify-content-center align-items-center">
+					<div class="col-md-6 fade-in">
+						<div class="text-start text-white mb-4">
+							<span class="text-warning fw-bold">TU SALUD PRIMERO</span>
+							<h2>Calculadora de IMC</h2>
+							<p>El Índice de Masa Corporal (IMC) es una medida simple pero efectiva para evaluar si estás
+								en un peso saludable. Conocer tu número es el primer paso.</p>
+
+							<div class="mt-4">
+								<h5 class="text-warning">Categorías:</h5>
+								<ul class="list-unstyled">
+									<li class="mb-2"><i class="la la-check text-success"></i> <strong>18.5 -
+											24.9:</strong> Peso Saludable</li>
+									<li class="mb-2"><i class="la la-exclamation text-warning"></i> <strong>25 -
+											29.9:</strong> Sobrepeso</li>
+									<li class="mb-2"><i class="la la-close text-danger"></i> <strong>30+:</strong>
+										Obesidad</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 fade-in">
+						<div class="card bg-dark text-white p-4"
+							style="border: 2px solid #edcc36; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+							<form id="bmiForm">
+								<h4 class="mb-3">Ingresa tus datos</h4>
+								<div class="row g-3">
+									<div class="col-sm-6">
+										<label class="small text-muted mb-1">Peso (kg)</label>
+										<input type="number" class="form-control bg-secondary text-white border-0"
+											id="weight" placeholder="Ej: 75" required>
+									</div>
+									<div class="col-sm-6">
+										<label class="small text-muted mb-1">Altura (m)</label>
+										<input type="number" step="0.01"
+											class="form-control bg-secondary text-white border-0" id="height"
+											placeholder="Ej: 1.75" required>
+									</div>
+									<div class="col-12 mt-4">
+										<button type="submit" class="button w-100">Calcular Mi IMC</button>
+									</div>
+								</div>
+							</form>
+							<div id="bmiResult" class="mt-4 p-3 rounded"
+								style="display: none; background: rgba(237, 204, 54, 0.1);">
+								<div class="text-center">
+									<span class="small d-block text-muted">TU RESULTADO</span>
+									<h2 id="bmiValue" class="text-warning fw-bold display-4 my-2"></h2>
+									<p id="bmiMessage" class="fw-bold mb-0"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End BMI Calculator -->
+
 		<!-- contact -->
 		<div id="contact" class="contact">
 			<div class="container">
 				<div class="content-map">
-					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.3059353029!2d-74.25986548248684!3d40.69714941932609!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sKota%20New%20York%2C%20New%20York%2C%20Amerika%20Serikat!5e0!3m2!1sid!2sid!4v1639286790548!5m2!1sid!2sid" height="510" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.5366408544865!2d-99.16584218509335!3d19.432607686884323!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f8d3450f3c8d%3A0x6b4fb6c1f1ac74!2sEl%20Angel%20of%20Independence!5e0!3m2!1sen!2smx!4v1639286790548!5m2!1sen!2smx"
+						height="510" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 				</div>
 				<div class="row g-5">
 					<div class="col-md col-sm-12">
-						<h2>Get In Touch</h2>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing, elit. Voluptates dignissimos nesciunt repellat minus vero molestiae, magnam sed provident similique distinctio.</p>
-						
+						<h2>Contáctanos</h2>
+						<p>¿Tienes dudas? Visítanos o escríbenos. Estamos listos para recibirte en la familia Titanium.
+						</p>
+
+						<!-- Contact Form Added -->
+						<form id="contactForm" class="mt-4">
+							<div class="mb-3">
+								<input type="text" class="form-control" placeholder="Tu Nombre" required>
+							</div>
+							<div class="mb-3">
+								<input type="email" class="form-control" placeholder="Tu Email" required>
+							</div>
+							<div class="mb-3">
+								<textarea class="form-control" rows="4" placeholder="Tu Mensaje" required></textarea>
+							</div>
+							<button type="submit" class="button">Enviar Mensaje</button>
+						</form>
+
 						<div class="row">
 							<div class="col">
 								<div class="icon"><i class="la la-phone"></i></div>
@@ -212,17 +653,17 @@
 					</div>
 					<div class="col-md col-sm-12">
 						<div class="open">
-							<h3>Monday - Saturday</h3>
-							<span>08:00 AM - 12.00 PM</span>
-							<h3>Sunday</h3>
-							<span>Open 24 Hours</span>
+							<h3>Lunes - Sábado</h3>
+							<span>08:00 AM - 10.00 PM</span>
+							<h3>Domingo</h3>
+							<span>09:00 AM - 02:00 PM</span>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- end contact -->
-		
+
 
 		<!-- testimonial -->
 		<div id="testimonial" class="testimonial">
@@ -231,71 +672,253 @@
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
 							<div class="content">
-								<p>Lorem ipsum, dolor sit amet consectetur, adipisicing elit. Voluptas quis vel asperiores incidunt illum placeat ab, ex iste reprehenderit ipsa commodi reicien ipsum, dolor sit amet consectetur, adipisicing elit. Voluptas quis vel asperiores incidunt illum </p>
+								<p>"Increíble gimnasio. Las máquinas son nuevas y el ambiente es muy motivador.
+									Totalmente recomendado."</p>
 								<div class="text">
-									<h5>John Doe</h5>
-									<span>Directur</span>
+									<h5>Juan Pérez</h5>
+									<span>Miembro Activo</span>
 								</div>
 							</div>
 						</div>
 						<div class="swiper-slide">
 							<div class="content">
-								<p>Lorem ipsum, dolor sit amet consectetur, adipisicing elit. Voluptas quis vel asperiores incidunt illum placeat ab, ex iste reprehenderit ipsa commodi reicien ipsum, dolor sit amet consectetur, adipisicing elit. Voluptas quis vel asperiores incidunt illum </p>
+								<p>"Los entrenadores son muy profesionales. He visto resultados en solo 3 meses. ¡Me
+									encanta!"</p>
 								<div class="text">
-									<h5>Mario</h5>
-									<span>Marketing</span>
+									<h5>María García</h5>
+									<span>Miembro Activo</span>
 								</div>
 							</div>
 						</div>
 						<div class="swiper-slide">
 							<div class="content">
-								<p>Lorem ipsum, dolor sit amet consectetur, adipisicing elit. Voluptas quis vel asperiores incidunt illum placeat ab, ex iste reprehenderit ipsa commodi reicien ipsum, dolor sit amet consectetur, adipisicing elit. Voluptas quis vel asperiores incidunt illum </p>
+								<p>"Excelente relación calidad-precio. Las clases grupales son lo mejor para mantenerse
+									en forma."</p>
 								<div class="text">
-									<h5>Wesley</h5>
-									<span>Programming</span>
+									<h5>Carlos Ruiz</h5>
+									<span>Atleta</span>
 								</div>
 							</div>
 						</div>
 						<div class="swiper-slide">
 							<div class="content">
-								<p>Lorem ipsum, dolor sit amet consectetur, adipisicing elit. Voluptas quis vel asperiores incidunt illum placeat ab, ex iste reprehenderit ipsa commodi reicien ipsum, dolor sit amet consectetur, adipisicing elit. Voluptas quis vel asperiores incidunt illum </p>
+								<p>"El mejor lugar para desconectar del trabajo y cuidar mi salud. Instalaciones
+									impecables."</p>
 								<div class="text">
-									<h5>Rami</h5>
-									<span>Designer</span>
+									<h5>Laura Díaz</h5>
+									<span>Miembro Activo</span>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="swiper-button-prev prev-slide"></div>
-  					<div class="swiper-button-next next-slide"></div>
+					<div class="swiper-button-next next-slide"></div>
 				</div>
 			</div>
 		</div>
 		<!-- end testimonial -->
 
-		
+		<!-- FAQ Section -->
+		<div id="faq" class="section-padding" style="padding: 80px 0; background-color: #111;">
+			<div class="container">
+				<div class="text-center mb-5 fade-in">
+					<h2>Preguntas <span class="text-warning">Frecuentes</span></h2>
+					<p>Resolvemos tus dudas antes de empezar</p>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-md-8 fade-in">
+						<div class="accordion accordion-flush" id="faqAccordion">
+							<div class="accordion-item bg-dark border-0 mb-3">
+								<h2 class="accordion-header" id="flush-headingOne">
+									<button class="accordion-button collapsed bg-dark text-white shadow-none"
+										type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+										aria-expanded="false" aria-controls="flush-collapseOne">
+										¿Tienen clases de prueba gratis?
+									</button>
+								</h2>
+								<div id="flush-collapseOne" class="accordion-collapse collapse"
+									aria-labelledby="flush-headingOne" data-bs-parent="#faqAccordion">
+									<div class="accordion-body text-secondary">
+										¡Sí! Ofrecemos un pase de 1 día totalmente gratis para que conozcas nuestras
+										instalaciones y clases antes de inscribirte.
+									</div>
+								</div>
+							</div>
+							<div class="accordion-item bg-dark border-0 mb-3">
+								<h2 class="accordion-header" id="flush-headingTwo">
+									<button class="accordion-button collapsed bg-dark text-white shadow-none"
+										type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo"
+										aria-expanded="false" aria-controls="flush-collapseTwo">
+										¿Puedo congelar mi membresía si viajo?
+									</button>
+								</h2>
+								<div id="flush-collapseTwo" class="accordion-collapse collapse"
+									aria-labelledby="flush-headingTwo" data-bs-parent="#faqAccordion">
+									<div class="accordion-body text-secondary">
+										Absolutamente. En los planes anuales, puedes congelar tu membresía hasta por 30
+										días sin costo adicional.
+									</div>
+								</div>
+							</div>
+							<div class="accordion-item bg-dark border-0 mb-3">
+								<h2 class="accordion-header" id="flush-headingThree">
+									<button class="accordion-button collapsed bg-dark text-white shadow-none"
+										type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree"
+										aria-expanded="false" aria-controls="flush-collapseThree">
+										¿Incluye asesoría nutricional?
+									</button>
+								</h2>
+								<div id="flush-collapseThree" class="accordion-collapse collapse"
+									aria-labelledby="flush-headingThree" data-bs-parent="#faqAccordion">
+									<div class="accordion-body text-secondary">
+										Nuestro plan anual incluye una consulta mensual gratuita con nuestro
+										nutricionista deportivo.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End FAQ -->
+
+
 
 		<!-- footer -->
-		<footer>
+		<footer style="background-color: #0c0c0c; color: #fff; padding: 60px 0 30px;">
 			<div class="container">
-				<div class="row">
-					<div class="col-md col-sm-6">
-						<ul>
-							<li><a href=""><i class="la la-facebook"></i></a></li>
-							<li><a href=""><i class="la la-twitter"></i></a></li>
-							<li><a href=""><i class="la la-instagram"></i></a></li>
-							<li><a href=""><i class="la la-youtube"></i></a></li>
+				<div class="row g-4">
+					<div class="col-md-4">
+						<h5 class="text-warning mb-3">Titanium Gym</h5>
+						<p class="small text-muted">El mejor espacio para transformar tu cuerpo y mente. Equipamiento
+							premium y los mejores entrenadores.</p>
+						<ul class="list-unstyled d-flex mt-3">
+							<li><a href="https://facebook.com" target="_blank" class="me-3 text-white"><i
+										class="la la-facebook fs-4"></i></a></li>
+							<li><a href="https://twitter.com" target="_blank" class="me-3 text-white"><i
+										class="la la-twitter fs-4"></i></a></li>
+							<li><a href="https://instagram.com" target="_blank" class="me-3 text-white"><i
+										class="la la-instagram fs-4"></i></a></li>
+							<li><a href="https://youtube.com" target="_blank" class="me-3 text-white"><i
+										class="la la-youtube fs-4"></i></a></li>
 						</ul>
 					</div>
-					<div class="col-md col-sm-6">
-						<div class="cp">
-							<span> Copyright © All Right Reserved </span>
-						</div>
+					<div class="col-md-4">
+						<h5 class="text-warning mb-3">Enlaces Rápidos</h5>
+						<ul class="list-unstyled">
+							<li><a href="#about" class="text-muted text-decoration-none">Sobre Nosotros</a></li>
+							<li><a href="#trainers" class="text-muted text-decoration-none">Entrenadores</a></li>
+							<li><a href="#schedule" class="text-muted text-decoration-none">Horarios</a></li>
+							<li><a href="#pricing" class="text-muted text-decoration-none">Membresías</a></li>
+						</ul>
+					</div>
+					<div class="col-md-4">
+						<h5 class="text-warning mb-3">Newsletter</h5>
+						<p class="small text-muted">Suscríbete para recibir tips de entrenamiento.</p>
+						<form class="d-flex">
+							<input class="form-control me-2 bg-dark border-secondary text-white" type="email"
+								placeholder="Tu email">
+							<button class="button px-3" type="button"><i class="la la-paper-plane"></i></button>
+						</form>
+					</div>
+				</div>
+				<hr class="border-secondary my-4">
+				<div class="row align-items-center">
+					<div class="col-md-6">
+						<span class="small text-muted">Desarrollado por Fernando &copy; 2025 Titanium Gym.</span>
+					</div>
+					<div class="col-md-6 text-md-end">
+						<a href="#" class="small text-muted text-decoration-none me-3">Privacidad</a>
+						<a href="#" class="small text-muted text-decoration-none">Términos</a>
 					</div>
 				</div>
 			</div>
 		</footer>
 		<!-- end footer -->
+
+		<!-- Membership Modal -->
+		<div class="modal fade" id="joinModal" tabindex="-1" aria-labelledby="joinModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="joinModalLabel">Únete a Titanium Gym</h5>
+						<button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form id="joinForm">
+							<div class="mb-3">
+								<label for="memberName" class="form-label">Nombre Completo</label>
+								<input type="text" class="form-control" id="memberName" required>
+							</div>
+							<div class="mb-3">
+								<label for="memberEmail" class="form-label">Correo Electrónico</label>
+								<input type="email" class="form-control" id="memberEmail" required>
+							</div>
+							<div class="mb-3">
+								<label for="planSelect" class="form-label">Plan de Interés</label>
+								<select class="form-select" id="planSelect">
+									<option value="General">Seleccionar...</option>
+									<option value="Mensual">Plan Mensual ($35)</option>
+									<option value="Anual">Plan Anual ($350)</option>
+								</select>
+							</div>
+							<div class="mb-3">
+								<label for="memberGoal" class="form-label">Tu Objetivo Principal</label>
+								<textarea class="form-control" id="memberGoal" rows="2"
+									placeholder="Ej: Ganar músculo, perder peso..."></textarea>
+							</div>
+							<button type="submit" class="button w-100">Enviar Solicitud</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Modal -->
+
+		<!-- WhatsApp Float Button -->
+		<a href="https://wa.me/1234567890" target="_blank" class="whatsapp-float">
+			<i class="la la-whatsapp"></i>
+		</a>
+		<style>
+			.whatsapp-float {
+				position: fixed;
+				width: 60px;
+				height: 60px;
+				bottom: 30px;
+				right: 30px;
+				background-color: #25d366;
+				color: #FFF;
+				border-radius: 50px;
+				text-align: center;
+				font-size: 35px;
+				box-shadow: 2px 2px 3px #999;
+				z-index: 1000;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				transition: all 0.3s ease;
+			}
+
+			.whatsapp-float:hover {
+				background-color: #20ba5a;
+				transform: scale(1.1);
+				color: #fff;
+			}
+
+			/* Scroll Animation Classes */
+			.fade-in {
+				opacity: 0;
+				transform: translateY(20px);
+				transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+			}
+
+			.fade-in.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		</style>
 
 		<!-- script -->
 		<script src="js/jquery.min.js"></script>
@@ -304,7 +927,8 @@
 		<script src="js/magnific-popup.min.js"></script>
 		<script src="js/swiper.min.js"></script>
 		<script src="js/main.js"></script>
-		
-		
-	</body>
+
+
+</body>
+
 </html>
